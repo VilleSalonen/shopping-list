@@ -1,14 +1,30 @@
 <head>
-  <title>shopping-list</title>
+  <title>Shopping List</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Koti</h1>
 
-  {{> hello}}
+  {{> shopping_list}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="shopping_list">
+    <ul>
+    {{#each items}}
+        <li>{{> item_info}}</li>
+    {{/each}}
+    </ul>
+
+    <h2>Lisää uusi</h2>
+
+    <form>
+        <input type="text" name="item_name" />
+        <input type="text" name="item_amount" />
+
+        <input type="submit" id="item_add" />
+    </form>
+</template>
+
+<template name="item_info">
+    {{ amount }}x {{ name }}  <a class="remove">Ostettu</a>
 </template>

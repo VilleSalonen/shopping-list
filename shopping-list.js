@@ -1,18 +1,23 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault("counter", 0);
+ShoppingList = new Meteor.Collection("shopping-list");
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
-    }
+if (Meteor.isClient) {
+  Template.shopping_list.items = function () {
+      return ShoppingList.find();
+  };
+
+  Template.item_info.events({
+      'click .remove': function () {
+          ShoppingList.remove(this._id);
+      }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set("counter", Session.get("counter") + 1);
-    }
+  Template.shopping_list.events({
+      'click #item_add': function (event, template) {
+          var itemName = template.find("input[name=item_name]").value;
+          var itemAmount = template.find("input[name=item_amount]").value;
+
+          ShoppingList.insert({ name: itemName, amount: itemAmount });
+      }
   });
 }
 
