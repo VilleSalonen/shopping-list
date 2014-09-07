@@ -23,6 +23,10 @@ if (Meteor.isClient) {
           var itemAmount = template.find("input[name=item_amount]").value;
 
           ShoppingList.insert({ name: itemName, amount: itemAmount });
+
+          template.find("input[name=item_name]").value = "";
+          template.find("input[name=item_amount]").value = "1";
+          template.find("input[name=item_name]").focus();
       }
     });
 }
