@@ -5,13 +5,17 @@ if (Meteor.isClient) {
         return ShoppingList.find();
     };
 
-  Template.item_info.events({
+    Template.item_info.events({
       'click .remove': function () {
           ShoppingList.remove(this._id);
       }
-  });
+    });
 
-  Template.shopping_list.events({
+    Template.item_info.isNonDefaultAmount = function (value) {
+        return value > 1;
+    };
+
+    Template.shopping_list.events({
       'click #item_add': function (event, template) {
           event.preventDefault();
 
@@ -20,7 +24,7 @@ if (Meteor.isClient) {
 
           ShoppingList.insert({ name: itemName, amount: itemAmount });
       }
-  });
+    });
 }
 
 if (Meteor.isServer) {
