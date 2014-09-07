@@ -1,30 +1,53 @@
 <head>
-  <title>Shopping List</title>
+    <title>Shopping List</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <h1>Koti</h1>
+    <div class="container">
+        <h1>Koti</h1>
 
-  {{> shopping_list}}
+        {{> shopping_list}}
+    </div>
 </body>
 
 <template name="shopping_list">
-    <ul>
     {{#each items}}
-        <li>{{> item_info}}</li>
+        {{> item_info}}
     {{/each}}
-    </ul>
 
     <h2>Lisää uusi</h2>
 
-    <form>
-        <input type="text" name="item_name" />
-        <input type="text" name="item_amount" />
+    <form role="form">
+        <div class="form-group">
+            <label for="item_name">Nimi</label>
+            <input id="item_name" name="item_name" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="item_amount">Määrä</label>
+            <input id="item_amount" name="item_amount" value="1" type="text" class="form-control" />
+        </div>
 
-        <input type="submit" id="item_add" />
+        <button id="item_add" class="btn btn-default">Lisää</button>
     </form>
 </template>
 
 <template name="item_info">
-    {{ amount }}x {{ name }}  <a class="remove">Ostettu</a>
+    <div class="row">
+        <div class="col-xs-8">
+            <p>{{ amount }}x {{ name }}</p>
+        </div>
+
+        <div style="text-align: right;" class="col-xs-4">
+            <button class="remove btn btn-success">Ostettu!</button>
+        </div>
+    </div>
 </template>
