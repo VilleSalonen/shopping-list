@@ -81,23 +81,23 @@
 </template>
 
 <template name="history">
+  {{#if items.count}}
     <h2>Historia</h2>
-    
-    <ul>
-      {{#if items.count}}
-          {{#each items}}
-            <li>
-            <small>
-              {{#if isNonDefaultAmount amount}}
-                  {{amount}}x
-              {{/if}}
 
-              {{name}}
-            </small>
-            </li>
-          {{/each}}
-      {{/if}}
+    <ul>
+      {{#each items}}
+        <li>
+        <small>
+          {{#if isNonDefaultAmount amount}}
+              {{amount}}x
+          {{/if}}
+
+          {{name}}
+        </small>
+        </li>
+      {{/each}}
     </ul>
+  {{/if}}
 </template>
 
 <template name="registration">
