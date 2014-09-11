@@ -59,7 +59,7 @@ Template.shopping_list.events({
       ShoppingList.insert({ name: itemName, amount: itemAmount });
 
       template.find("input[name=item_name]").value = "";
-      template.find("input[name=item_amount]").value = "1";
+      template.find("input[name=item_amount]").value = "";
       template.find("input[name=item_name]").focus();
   }
 });
