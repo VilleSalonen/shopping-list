@@ -1,4 +1,4 @@
-ShoppingList = new Meteor.Collection("shopping-list");
+Meteor.subscribe("shoppingList");
 
 Handlebars.registerHelper('isLoggedIn', function () {
     var user = Meteor.user();
