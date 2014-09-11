@@ -9,6 +9,13 @@ Template.shopping_list.items = function () {
     return ShoppingList.find();
 };
 
+Template.login.username = function () {
+  var user = Meteor.user();
+  if (!user) { return ""; }
+
+  return Meteor.user().username;
+};
+
 Template.item_info.events({
   'click .remove': function () {
       ShoppingList.remove(this._id);
