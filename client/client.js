@@ -10,7 +10,7 @@ Handlebars.registerHelper('isNonDefaultAmount', function (value) {
 });
 
 Template.history.items = function () {
-    return ShoppingList.find({ bought: true });
+    return ShoppingList.find({ bought: true }, { sort: { boughtOn: -1 }, limit: 10 });
 };
 
 Template.shopping_list.items = function () {
