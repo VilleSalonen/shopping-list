@@ -18,7 +18,7 @@ ShoppingList.allow({
 
 Meteor.methods({
   markAsBought: function (id) {
-    ShoppingList.update({ _id: id, owner: Meteor.userId() }, { $set: { bought: true }});
+    ShoppingList.update({ _id: id, owner: Meteor.userId() }, { $set: { bought: true, boughtOn: new Date() }});
     return id;
   }  
 });

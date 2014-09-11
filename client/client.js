@@ -5,6 +5,14 @@ Handlebars.registerHelper('isLoggedIn', function () {
     return !_.isUndefined(user) && !_.isNull(user);
 });
 
+Handlebars.registerHelper('isNonDefaultAmount', function (value) {
+    return value > 1;
+});
+
+Template.history.items = function () {
+    return ShoppingList.find({ bought: true });
+};
+
 Template.shopping_list.items = function () {
     return ShoppingList.find({ bought: false });
 };
@@ -21,10 +29,6 @@ Template.item_info.events({
     Meteor.call("markAsBought", this._id);
   }
 });
-
-Template.item_info.isNonDefaultAmount = function (value) {
-    return value > 1;
-};
 
 Template.registration.events({
   'submit #registration-form': function(e, t) {

@@ -29,6 +29,8 @@
 
       {{#if isLoggedIn}}
         {{> shopping_list}}
+        
+        {{> history}}
       {{else}}
         {{> registration}}
       {{/if}}
@@ -60,6 +62,44 @@
     </form>
 </template>
 
+<template name="item_info">
+    <div class="row">
+        <div class="col-xs-8">
+            <p>
+                {{#if isNonDefaultAmount amount}}
+                    {{amount}}x
+                {{/if}}
+
+                {{name}}
+            </p>
+        </div>
+
+        <div style="text-align: right;" class="col-xs-4">
+            <button class="remove btn btn-success">Ostettu!</button>
+        </div>
+    </div>
+</template>
+
+<template name="history">
+    <h2>Historia</h2>
+    
+    <ul>
+      {{#if items.count}}
+          {{#each items}}
+            <li>
+            <small>
+              {{#if isNonDefaultAmount amount}}
+                  {{amount}}x
+              {{/if}}
+
+              {{name}} {{boughtOn}}
+            </small>
+            </li>
+          {{/each}}
+      {{/if}}
+    </ul>
+</template>
+
 <template name="registration">
   <div style="margin-right: auto; margin-left: auto; text-align: center;">
     <h2 style="font-size: 40px;">Rekisteröidy</h2>
@@ -79,24 +119,6 @@
       </div>
     </form>
   </div>
-</template>
-
-<template name="item_info">
-    <div class="row">
-        <div class="col-xs-8">
-            <p>
-                {{#if isNonDefaultAmount amount}}
-                    {{amount}}x
-                {{/if}}
-
-                {{name}}
-            </p>
-        </div>
-
-        <div style="text-align: right;" class="col-xs-4">
-            <button class="remove btn btn-success">Ostettu!</button>
-        </div>
-    </div>
 </template>
 
 <template name="login">
