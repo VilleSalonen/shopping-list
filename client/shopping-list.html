@@ -75,21 +75,21 @@
 </template>
 
 <template name="item_info">
-    <div class="row">
-        <div class="col-xs-8">
-            <p>
-                {{#if isNonDefaultAmount amount}}
-                    {{amount}}x
-                {{/if}}
+  <div class="row">
+    <div class="col-xs-8">
+      <p>
+        {{#if isNonDefaultAmount amount}}
+            {{amount}}x
+        {{/if}}
 
-                {{name}}
-            </p>
-        </div>
-
-        <div style="text-align: right;" class="col-xs-4">
-            <button class="remove btn btn-success">Ostettu!</button>
-        </div>
+        {{name}}
+      </p>
     </div>
+
+    <div style="text-align: right;" class="col-xs-4">
+      <button class="remove btn btn-success">Ostettu!</button>
+    </div>
+  </div>
 </template>
 
 <template name="history">
