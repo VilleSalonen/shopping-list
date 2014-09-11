@@ -102,11 +102,23 @@
 
 <template name="registration">
   <div style="margin-right: auto; margin-left: auto; text-align: center;">
-    <h2 style="font-size: 40px;">Rekisteröidy</h2>
+    <div class="bubble-left">Mitä sieltä kaupasta piti tuoda?</div>
+    <div class="bubble-right">Tuo kurkkua, tomaattia ja jotain syötävää ja mulle laktoositonta maitoa ...</div>
+    <div class="bubble-left">Oota hetki, en mä muista noita kaikkia.</div>
+    <div class="bubble-right">... ja kissanruokaa. Miten niin et muista kaikkea? Kirjoita ylös.</div>
+    <div class="bubble-left">Äh, ei mulla oo tässä kynää ja paperia.</div>
+    <div class="bubble-right">No, ei tossa niin montaa ollut. Kait sä ne muistat.</div>
 
+    <p><small>Myöhemmin kotona...</small></p>
+  
+    <div class="bubble-right">Mikset ostanut vessapaperia ja kissanruokaa?</div>
+    <div class="bubble-left">Et sä sanonut niitä!</div>
+  
+    <p>Ei enää koskaan.</p>
+    
     <form id="registration-form" action="action" role="form" style="max-width: 500px; margin-left: auto; margin-right: auto;">
       <div class="form-group">
-        <input type="name" id="registration-name" placeholder="Nimenne" class="form-control" />
+        <input type="name" id="registration-name" placeholder="Nimenne (jaettu tunnus)" class="form-control" />
       </div>
       <div class="form-group">
         <input type="email" id="registration-email" placeholder="Sähköposti" class="form-control" />
