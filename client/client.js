@@ -6,7 +6,7 @@ Handlebars.registerHelper('isLoggedIn', function () {
 });
 
 Template.shopping_list.items = function () {
-    return ShoppingList.find();
+    return ShoppingList.find({ bought: false });
 };
 
 Template.login.username = function () {
@@ -18,7 +18,7 @@ Template.login.username = function () {
 
 Template.item_info.events({
   'click .remove': function () {
-      ShoppingList.remove(this._id);
+    Meteor.call("markAsBought", this._id);
   }
 });
 
