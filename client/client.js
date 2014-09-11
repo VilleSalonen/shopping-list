@@ -1,4 +1,10 @@
-Meteor.subscribe("shoppingList");
+Meteor.subscribe("shoppingList", function onReady() {
+  Session.set('loaded', true);
+});
+
+Handlebars.registerHelper('loaded', function () {
+  return Session.get('loaded');
+});
 
 Handlebars.registerHelper('isLoggedIn', function () {
     var user = Meteor.user();

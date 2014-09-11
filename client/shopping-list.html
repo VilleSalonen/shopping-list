@@ -14,8 +14,30 @@
 </head>
 
 <body>
-  {{#if isLoggedIn}}
-    {{> loggedInMenu}}
+  {{#if loaded}}
+    {{#if isLoggedIn}}
+      {{> loggedInMenu}}
+    {{else}}
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand">Tuo Kaupasta</a>
+          </div>
+        </div>
+      </nav>
+    {{/if}}
+  
+    <div class="container">
+      {{#if isLoggedIn}}
+        {{> shopping_list}}
+      
+        {{> history}}
+      {{else}}
+        {{> login}}
+    
+        {{> registration}}
+      {{/if}}
+    </div>
   {{else}}
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -24,19 +46,11 @@
         </div>
       </div>
     </nav>
-  {{/if}}
   
-  <div class="container">
-    {{#if isLoggedIn}}
-      {{> shopping_list}}
-      
-      {{> history}}
-    {{else}}
-      {{> login}}
-    
-      {{> registration}}
-    {{/if}}
-  </div>
+    <div class="container" style="text-align: center;">
+      <p style="font-size: 200%;">Loading...</p>
+    </div>
+  {{/if}}
 </body>
 
 <template name="shopping_list">
