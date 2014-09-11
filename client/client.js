@@ -17,7 +17,7 @@ Template.shopping_list.items = function () {
     return ShoppingList.find({ bought: false });
 };
 
-Template.login.username = function () {
+Template.loggedInMenu.username = function () {
   var user = Meteor.user();
   if (!user) { return ""; }
 
@@ -80,7 +80,9 @@ Template.login.events({
     // Prevent form submission
     return false; 
   },
-  
+});
+
+Template.loggedInMenu.events({
   'click .logout': function (e, t) {
     Meteor.logout();
   },
