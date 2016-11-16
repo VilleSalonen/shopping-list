@@ -26,7 +26,12 @@ class ItemsCtrl {
     }
 
     addItem(newItemName, newItemAmount) {
-        Meteor.call("shoppingList.insert", newItemName, +newItemAmount);
+        var amount = 1;
+        if (newItemAmount) {
+            amount = +newItemAmount;
+        }
+
+        Meteor.call("shoppingList.insert", newItemName, amount);
 
         this.newItemName = "";
         this.newItemAmount = "";
