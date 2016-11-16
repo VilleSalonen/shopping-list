@@ -10,39 +10,14 @@ class ShoppingListCtrl {
         $scope.viewModel(this);
     
         this.helpers({
-            shoppingItems() {
-                return ShoppingList.find({ bought: false });
-            },
-
-            boughtItems() {
-                return ShoppingList.find({ bought: true }, {
-                    sort: { boughtOn: -1 },
-                    limit: 10
-                });
+            currentUser() {
+                return Meteor.user();
             }
         })
     }
 
-    addItem(newItemName, newItemAmount) {
-        ShoppingList.insert({
-            name: newItemName,
-            amount: newItemAmount,
-            addedOn: new Date(),
-            bought: false,
-            boughtOn: undefined
-        })
-
-        this.newItemName = "";
-        this.newItemAmount = "";
-    }
-
-    markAsBought(item) {
-        ShoppingList.update(item._id, {
-            $set: {
-                bought: true,
-                boughtOn: new Date()
-            }
-        });
+    logout() {
+        Meteor.logout();
     }
 }
  
