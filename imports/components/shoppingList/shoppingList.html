@@ -38,3 +38,13 @@
         <button ng-click="$ctrl.markAsBought(item)" class="remove btn btn-success">Ostettu!</button>
     </div>
 </div>
+
+<h2>Historia</h2>
+
+<ul>
+    <li ng-repeat="item in $ctrl.boughtItems">
+        <small>
+            {{item.name}}
+        </small>
+    </li>
+</ul>

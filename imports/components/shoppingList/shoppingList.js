@@ -12,6 +12,13 @@ class ShoppingListCtrl {
         this.helpers({
             shoppingItems() {
                 return ShoppingList.find({ bought: false });
+            },
+
+            boughtItems() {
+                return ShoppingList.find({ bought: true }, {
+                    sort: { boughtOn: -1 },
+                    limit: 10
+                });
             }
         })
     }
