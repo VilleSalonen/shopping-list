@@ -35,6 +35,8 @@ class ItemsCtrl {
 
         this.newItemName = "";
         this.newItemAmount = "";
+
+        $("#item-name").focus();
     }
 
     markAsBought(item) {
