@@ -1,0 +1,34 @@
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Tuo Kaupasta</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<h1>Kirjaudu sisään</h1>
+
+<form class="login">
+    <input ng-model="$ctrl.username" type="text" name="username" placeholder="Käyttäjätunnus" />
+    <input ng-model="$ctrl.password" type="password" name="password" placeholder="Salasana" />
+
+    <button ng-click="$ctrl.login($ctrl.username, $ctrl.password)" class="btn btn-default">Kirjaudu sisään</button>
+</form>
+
+<h1>Rekisteröinti</h1>
+
+<form class="new-user">
+    <input ng-model="$ctrl.newUsername" type="text" name="new-username" placeholder="Käyttäjätunnus" />
+    <input ng-model="$ctrl.newPassword" type="password" name="new-password" placeholder="Salasana" />
+    <input ng-model="$ctrl.newEmail" type="text" name="new-email" placeholder="Sähköposti (valinnainen salasanan palautukseen)" />
+
+    <button ng-click="$ctrl.addUser($ctrl.newUsername, $ctrl.newPassword, $ctrl.newEmail)" class="btn btn-default">Rekisteröidy</button>
+</form>

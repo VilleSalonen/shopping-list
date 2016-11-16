@@ -10,6 +10,7 @@
 
 <body>
   <div class="container" ng-app="shopping-list">
-    <shopping-list></shopping-list>
+    <shopping-list ng-show="$ctrl.currentUser"></shopping-list>
+    <registration ng-show="!$ctrl.currentUser"></registration>
   </div>
 </body>
