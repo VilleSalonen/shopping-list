@@ -1,40 +1,40 @@
 <header>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">Tuo Kaupasta</a>
-      </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Tuo Kaupasta</a>
+            </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="" class="logout">Poistu</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" class="logout">Poistu</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <form class="new-item">
-  <input ng-model="$ctrl.newItemName" type="text" name="text" placeholder="Mitä ostetaan?" />
-  <input ng-model="$ctrl.newItemAmount" type="text" name="text" placeholder="Määrä (valinnainen)" />
+    <input ng-model="$ctrl.newItemName" type="text" name="text" placeholder="Mitä ostetaan?" />
+    <input ng-model="$ctrl.newItemAmount" type="text" name="text" placeholder="Määrä (valinnainen)" />
 
-  <button ng-click="$ctrl.addItem($ctrl.newItemName, $ctrl.newItemAmount)" class="btn btn-default">Lisää listalle</button>
+    <button ng-click="$ctrl.addItem($ctrl.newItemName, $ctrl.newItemAmount)" class="btn btn-default">Lisää listalle</button>
 </form>
 
 <div class="row" ng-repeat="item in $ctrl.shoppingItems">
-  <div class="col-xs-8">
-    <p>
-      {{item.amount}}x {{item.name}}
-    </p>
-  </div>
+    <div class="col-xs-8">
+        <p>
+            {{item.amount}}x {{item.name}}
+        </p>
+    </div>
 
-  <div style="text-align: right;" class="col-xs-4">
-    <button ng-click="$ctrl.markAsBought(item)" class="remove btn btn-success">Ostettu!</button>
-  </div>
+    <div style="text-align: right;" class="col-xs-4">
+        <button ng-click="$ctrl.markAsBought(item)" class="remove btn btn-success">Ostettu!</button>
+    </div>
 </div>
