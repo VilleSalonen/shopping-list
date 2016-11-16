@@ -21,6 +21,9 @@ class ShoppingListCtrl {
           name: newItemName,
           amount: newItemAmount
       })
+
+      this.newItemName = "";
+      this.newItemAmount = "";
   }
 }
  
