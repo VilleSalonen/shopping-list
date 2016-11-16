@@ -25,6 +25,9 @@ class RegistrationCtrl {
             if (err)
                 alert(err);
         });
+
+        this.username = "";
+        this.password = "";
     }
 }
  
