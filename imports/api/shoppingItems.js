@@ -4,14 +4,17 @@ import { check } from 'meteor/check';
 
 export const ShoppingList = new Mongo.Collection("shoppingList");
 
+if (Meteor.isServer) {
+    // This code only runs on the server
+    Meteor.publish('shoppingList', function shoppingListPublication() {
+        return ShoppingList.find({ owner: this.userId });
+    });
+}
+
 Meteor.methods({
     "shoppingList.insert" (name, amount) {
         check(name, String);
         check(amount, Number);
-
-        if (isNan(amount)) {
-            throw new Meteor.error("not-a-number");
-        }
 
         if (!Meteor.userId()) {
             throw new Meteor.error("not-authorized");

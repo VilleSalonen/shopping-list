@@ -8,6 +8,8 @@ import template from './items.html';
 class ItemsCtrl {
     constructor($scope) {
         $scope.viewModel(this);
+
+        this.subscribe('shoppingList');
     
         this.helpers({
             shoppingItems() {
