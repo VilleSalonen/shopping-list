@@ -15,6 +15,13 @@ class ShoppingListCtrl {
       }
     })
   }
+
+  addItem(newItemName, newItemAmount) {
+      ShoppingList.insert({
+          name: newItemName,
+          amount: newItemAmount
+      })
+  }
 }
  
 export default angular.module('shoppingList', [
