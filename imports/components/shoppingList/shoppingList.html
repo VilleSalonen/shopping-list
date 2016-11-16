@@ -1,7 +1,25 @@
 <header>
-  <h1>Todo List</h1>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Tuo Kaupasta</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="" class="logout">Poistu</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
- 
+
 <ul>
   <li ng-repeat="item in $ctrl.shoppingItems">
     {{item.amount}}x {{item.name}}
