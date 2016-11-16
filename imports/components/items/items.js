@@ -24,25 +24,14 @@ class ItemsCtrl {
     }
 
     addItem(newItemName, newItemAmount) {
-        ShoppingList.insert({
-            name: newItemName,
-            amount: newItemAmount,
-            addedOn: new Date(),
-            bought: false,
-            boughtOn: undefined
-        })
+        Meteor.call("shoppingList.insert", newItemName, +newItemAmount);
 
         this.newItemName = "";
         this.newItemAmount = "";
     }
 
     markAsBought(item) {
-        ShoppingList.update(item._id, {
-            $set: {
-                bought: true,
-                boughtOn: new Date()
-            }
-        });
+        Meteor.call("shoppingList.markAsBought", item._id);
     }
 }
  
