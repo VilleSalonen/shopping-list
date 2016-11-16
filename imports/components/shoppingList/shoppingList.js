@@ -1,16 +1,19 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+
+import { ShoppingList } from "../../api/shoppingItems.js";
+
 import template from './shoppingList.html';
  
 class ShoppingListCtrl {
-  constructor() {
-    this.tasks = [{
-      text: 'This is task 1'
-    }, {
-      text: 'This is task 2'
-    }, {
-      text: 'This is task 3'
-    }];
+  constructor($scope) {
+    $scope.viewModel(this);
+ 
+    this.helpers({
+      shoppingItems() {
+        return ShoppingList.find({});
+      }
+    })
   }
 }
  
@@ -19,5 +22,5 @@ export default angular.module('shoppingList', [
 ])
   .component('shoppingList', {
     templateUrl: 'imports/components/shoppingList/shoppingList.html',
-    controller: ShoppingListCtrl
+    controller: ['$scope', ShoppingListCtrl]
   });
